@@ -1,0 +1,16 @@
+services:
+  timesheet-postgres:
+    image: postgres:16
+    container_name: timesheet-postgres
+    environment:
+      POSTGRES_DB: timesheet
+      POSTGRES_USER: timesheet
+      POSTGRES_PASSWORD: timesheet
+    ports:
+      - "5433:5432"
+    volumes:
+      - timesheet-postgres-data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  timesheet-postgres-data:
